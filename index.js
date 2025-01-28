@@ -9,12 +9,12 @@ require('dotenv').config()
 // middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['https://book-app-frontend-lime.vercel.app/'],
+    origin: ['https://book-app-frontend-updated.vercel.app/'],
     credentials: true
 }))
 
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://book-app-frontend-lime.vercel.app/'], // Add the deployed frontend URL here
+  origin: ['http://localhost:5173', 'https://book-app-frontend-updated.vercel.app/'], // Add the deployed frontend URL here
   credentials: true, // If you need to send cookies or other credentials
 };
 
