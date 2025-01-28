@@ -9,9 +9,16 @@ require('dotenv').config()
 // middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://book-app-frontend-tawny.vercel.app/'],
+    origin: ['http://localhost:5173' ,"https://book-app-frontend-lime.vercel.app/"],
     credentials: true
 }))
+
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://book-app-frontend-lime.vercel.app/'], // Add the deployed frontend URL here
+  credentials: true, // If you need to send cookies or other credentials
+};
+
+app.use(cors(corsOptions));
 
 // routes
 const bookRoutes = require('./src/books/book.route');
@@ -26,7 +33,7 @@ app.use("/api/admin", adminRoutes)
 
 
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect(process.env.DB_URI);
   app.use("/", (req, res) => {
     res.send("Book Store Server is running!");
   });
